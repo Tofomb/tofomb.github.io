@@ -1,5 +1,5 @@
 
-	#ad {background-color: #70b1a5}
+	#framer {background-color: #70b1a5}
 	div { position: relative; border: 1px solid #910710; padding: 4px; margin: 4px; background-color: lightgoldenrodyellow; }
 	img {position: absolute; top: 0px; left: 0px; width: auto; height: 150px; margin-right: 150px; }
 	table { background-color: #e1e1bd; border-collapse: collapse;}
@@ -25,7 +25,7 @@
 	}
 	
 	@media (max-width: 25cm){
-	        #ad{
+	        #framer{
           display:flex;
           flex-flow: column;
         }
