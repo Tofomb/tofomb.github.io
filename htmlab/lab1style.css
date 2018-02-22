@@ -1,0 +1,39 @@
+
+	#ad {background-color: #70b1a5}
+	div { position: relative; border: 1px solid #910710; padding: 4px; margin: 4px; background-color: lightgoldenrodyellow; }
+	img {position: absolute; top: 0px; left: 0px; width: auto; height: 150px; margin-right: 150px; }
+	table { background-color: #e1e1bd; border-collapse: collapse;}
+	td {border: 1px solid black; text-align: center; padding: 10px;}
+	#firstTab > td {border: 3px solid black;}
+	#sp {position: relative;}
+	#a1 {position: absolute; right: 20px; top: 0px;}
+	#a2 {position: absolute; right: 20px; bottom: 0px;  margin-bottom: 2px;}
+	#a3 {position: absolute; right: 20px; top: 60px;}
+	#naver {position: relative; left: -70px; top: 0px;}
+
+	@media (min-width: 25cm) {
+    body {
+        background-color: #70b1a5;
+    }
+	#nav { float: left;}
+	#article {height: 82vh; display: flex; flex-direction: row;}	
+	
+	.navaside {position: relative; top: -4px; height: 82vh;}
+	#aside { float: right; height: 150px;}
+	table{position: relative;}
+	
+	}
+	
+	@media (max-width: 25cm){
+	        #ad{
+          display:flex;
+          flex-flow: column;
+        }
+        #header{order:1;}
+        #article{order:2;}
+        #nav{order:3;}
+		#aside{order:4;}
+		#footer{order:5;}
+		 
+		#sp {width: 150px;}
+      }
