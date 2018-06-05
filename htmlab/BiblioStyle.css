@@ -36,7 +36,7 @@ let key=0;
           midStatus=obj.status;
 
           if (obj.status == 'success' || n >= 2){
-          document.getElementById("displayer").innerHTML = midStatus + ' after ' + n + ' tries' + ' : ' + obj.message;
+          document.getElementById("displayer").innerHTML = '' + midStatus + ' after ' + n + ' tries' + ' : ' + obj.message;
           }
           else{
             insertFetch_retry(url, n+1);}
@@ -72,7 +72,7 @@ let key=0;
           console.log('4 midstatusstettarens: ' + midStatus);
 
           if (obj.status == 'success' || n >= 2){
-          document.getElementById("displayer").innerHTML = midStatus + ' after ' + n + ' tries' + ' : ' + obj.message;
+          document.getElementById("displayer").innerHTML = '' + midStatus + ' after ' + n + ' tries' + ' : ' + obj.message;
 
           var table = document.getElementById("bookTable");
           for (var ii = table.rows.length; ii > 1; ii--){
