@@ -51,7 +51,9 @@ let key=0;
 });
 
 });
+
 // Select
+
  window.addEventListener('load', function() {
  			let button = document.getElementById('btnSelect');
  			button.addEventListener('click', function() {
@@ -63,7 +65,7 @@ let key=0;
         const selectFetch_retry = async (url, n) => {
         await fetch(url)
         .then(response => {
-          console.log('1 respinse : '+response);
+          console.log('1 respinse : '+ response);
           return response.json();
         })
         .then (obj => {ginkgu=obj.status;
