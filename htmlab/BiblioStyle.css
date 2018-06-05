@@ -1,7 +1,7 @@
 
 
 let key=0;
- fetch('https://www.forverkliga.se/JavaScript/api/crud.php?requestKey')
+ await fetch('https://www.forverkliga.se/JavaScript/api/crud.php?requestKey')
  .then (response => {
    console.log(response)
    return response.json();
