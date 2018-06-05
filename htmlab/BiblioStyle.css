@@ -58,7 +58,7 @@ let key=0;
  			let button = document.getElementById('btnSelect');
  			button.addEventListener('click', function() {
 
-        url ='https://www.forverkliga.se/JavaScript/api/crud.php?op=select';
+        url = 'https://www.forverkliga.se/JavaScript/api/crud.php?op=select';
         url += '&key=' + key;
         n = 1;
 
