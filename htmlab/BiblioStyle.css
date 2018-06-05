@@ -45,7 +45,7 @@ let key=0;
 };
 
     let insertResponse = insertFetch_retry(url, n);
-//    console.log('5 insertResponse : '+ insertResponse);
+//    console.log('5 insertResponse : ' + insertResponse);
 
 
 });
