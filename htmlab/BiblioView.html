@@ -3,126 +3,41 @@
 <head>
 <meta charset="utf-8">
  <title>Biblo Viewer</title>
- <script>
- let request = new XMLHttpRequest();
- request.open('get', 'https://www.forverkliga.se/JavaScript/api/crud.php?requestKey', false);
- request.send();
-
-let json = JSON.parse(request.responseText);
-
-
- window.addEventListener('load', function() {
- 			let button = document.getElementById('btnSend');
- 			button.addEventListener('click', function() {
-
-        let bname = document.getElementById('bname').value;
-        let aname = document.getElementById('aname').value;
-
-						console.log(json.key);
-          //  let key = json.key;
-
- 						console.log('key' + request.responseText);
-            console.log(bname + ' ' + aname)
-            let url = 'https://www.forverkliga.se/JavaScript/api/crud.php?op=insert';
-            url += '&key=' + json.key;
-            url += '&title=' + bname;
-            url += '&author=' + aname;
-
-            let cc = 0;
-            do{
-            request.open('get', url, false);
-            request.send();
-            cc++;
-          } while ((JSON.parse(request.responseText)).status == 'error' && cc < 4)
-
-
-                console.log((JSON.parse(request.responseText)).status)
-
-              console.log(url);
-              console.log('insert ' + request.responseText);
-            document.getElementById("displayer").innerHTML = (JSON.parse(request.responseText)).status + ' after ' + cc + ' tries' + ' : ' + (JSON.parse(request.responseText)).message;
-
-
-
-
-});
-
-});
-
-
- window.addEventListener('load', function() {
- 			let button = document.getElementById('btnSelect');
- 			button.addEventListener('click', function() {
-
-        url ='https://www.forverkliga.se/JavaScript/api/crud.php?op=select';
-        url += '&key=' + json.key;
-
-
-        let cc = 0;
-        do{
-        request.open('get', url, false);
-        request.send();
-        cc++;
-      } while ((JSON.parse(request.responseText)).status == 'error' && cc < 4)
-
-        console.log('select ' + request.responseText);
-        document.getElementById("displayer").innerHTML = (JSON.parse(request.responseText)).status + ' after ' + cc + ' tries' + ' : ' + (JSON.parse(request.responseText)).message;
-
-
-    let bookIds = JSON.parse(request.responseText);
-
-        var table = document.getElementById("bookTable");
-
-        for (var ii = table.rows.length; ii > 1; ii--){
-        table.deleteRow(ii-1);
-        }
-
-      /*  var row = table.insertRow(0);
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        cell1.innerHTML = 'Book';
-        cell2.innerHTML = 'Author';
-*/
-        for (ii in bookIds.data) {
-
-        var row = table.insertRow(1);
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        var cell3 = row.insertCell(2);
-        cell1.innerHTML = bookIds.data[ii].title;
-        cell2.innerHTML = bookIds.data[ii].author;
-        cell3.innerHTML = bookIds.data[ii].id;
-
-
-
-      };
-    });
-  });
-
- </script>
+ <link rel="stylesheet" type="text/css" href="BiblioStyle.css">
+ 
 </head>
 <body>
 <h1>
 BiblioView
 </h1>
+<div id="frameer">
 <div id="displayer">
   result
 </div>
+<div class="Links">
 Book Name: <input type="text" id="bname" name="bname"><br>
 Author Name: <input type="text" id="aname" name="aname"><br>
-<button id="btnSend">Add author</button>
+</div>
+<button id="btnSend">Add Item</button>
 <button id="btnSelect">View List</button>
 <table id = "bookTable">
   <tr>
-    <th>Book</th>
+<th>Book</th>
 <th>Author</th>
 <th>Book Id</th>
   </tr>
 </table>
+</div>
 </body>
 <style>
-div {border: 1px solid #555555; background-color: lightgray;}
-table, th, td {border: 1px solid black; border-collapse: collapse; padding: 2px;}
+.Links{border: 1px solid black; padding: 5px; background: linear-gradient(white, lightgoldenrodyellow);}
+#displayer {border: 1px solid #555555; background: linear-gradient(white, grey); padding: 2px;}
+#frameer {border: 1px solid black; background-color: #70b1a5; width: 200px;
+    height:auto;}
+div {margin: 10px;}
+button {margin: 10px;}
+#bookTable{margin: 10px;}
+table, th, td {border: 1px solid black; border-collapse: collapse; padding: 2px; background-color: white;}
 th {background-color: lightgoldenrodyellow;}
 </style>
 </html>
