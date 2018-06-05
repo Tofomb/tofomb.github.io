@@ -17,7 +17,8 @@ let key=0;
         let aname = document.getElementById('aname').value;
 
             console.log(bname + ' ' + aname);
-            let url = 'https://www.forverkliga.se/JavaScript/api/crud.php?op=insert';
+            let url = '';
+            url = 'https://www.forverkliga.se/JavaScript/api/crud.php?op=insert';
             url += '&key=' + key;
             url += '&title=' + bname;
             url += '&author=' + aname;
