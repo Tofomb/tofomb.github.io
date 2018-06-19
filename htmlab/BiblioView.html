@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <style>
+  .Links{border: 1px solid black; padding: 5px; background: linear-gradient(white, lightgoldenrodyellow);}
+  #displayer {border: 1px solid #555555; background: linear-gradient(white, grey); padding: 2px;}
+  #frameer {border: 1px solid black; background-color: #70b1a5; width: 200px;
+      height:auto;}
+  div {margin: 10px;}
+  button {margin: 10px;}
+  #bookTable{margin: 10px;}
+  table, th, td {border: 1px solid black; border-collapse: collapse; padding: 2px; background-color: white;}
+  th {background-color: lightgoldenrodyellow;}
+  </style>
 <meta charset="utf-8">
  <title>Biblo Viewer</title>
  <script>
@@ -22,7 +33,7 @@ let key=0;
         let bname = document.getElementById('bname').value;
         let aname = document.getElementById('aname').value;
 
-            console.log(bname + ' ' + aname);
+            console.log(bname + ' ' + aname)
             let url = 'https://www.forverkliga.se/JavaScript/api/crud.php?op=insert';
             url += '&key=' + key;
             url += '&title=' + bname;
@@ -64,16 +75,19 @@ let key=0;
         url ='https://www.forverkliga.se/JavaScript/api/crud.php?op=select';
         url += '&key=' + key;
         n = 1;
+        midStatus=0;
 
         const selectFetch_retry = async (url, n) => {
         await fetch(url)
         .then(response => {
-          console.log('1 respinse : '+response);
+          console.log('1 respinse :');
           return response.json();
         })
         .then (obj => {ginkgu=obj.status;
+
           midStatus=obj.status;
-          console.log(obj.data[0].title + ' 2 tilte');
+
+        
           console.log('3 ginku loggen: ' + ginkgu);
           console.log('4 midstatusstettarens: ' + midStatus);
 
@@ -133,15 +147,5 @@ Author Name: <input type="text" id="aname" name="aname"><br>
 </table>
 </div>
 </body>
-<style>
-.Links{border: 1px solid black; padding: 5px; background: linear-gradient(white, lightgoldenrodyellow);}
-#displayer {border: 1px solid #555555; background: linear-gradient(white, grey); padding: 2px;}
-#frameer {border: 1px solid black; background-color: #70b1a5; width: 200px;
-    height:auto;}
-div {margin: 10px;}
-button {margin: 10px;}
-#bookTable{margin: 10px;}
-table, th, td {border: 1px solid black; border-collapse: collapse; padding: 2px; background-color: white;}
-th {background-color: lightgoldenrodyellow;}
-</style>
+
 </html>
